@@ -1,218 +1,198 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-        <TableRow
-            android:id="@+id/place11"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
-        </TableRow>
-        <TableRow
-            android:id="@+id/place12"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
-        </TableRow>
-        <TableRow
-            android:id="@+id/place13"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
-        </TableRow>
-    </TableRow>
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-        <TableRow
-            android:id="@+id/place21"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
-        </TableRow>
-        <TableRow
-            android:id="@+id/place22"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
-        </TableRow>
-        <TableRow
-            android:id="@+id/place23"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
-        </TableRow>
-    </TableRow>
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-        <TableRow
-            android:id="@+id/place31"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
-        </TableRow>
-        <TableRow
-            android:id="@+id/place32"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
-        </TableRow>
-        <TableRow
-            android:id="@+id/place33"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
-        </TableRow>
-    </TableRow>
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-        <TableRow
-            android:id="@+id/place41"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
-        </TableRow>
-        <TableRow
-            android:id="@+id/place42"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
-        </TableRow>
-        <TableRow
-            android:id="@+id/place43"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
-        </TableRow>
-    </TableRow>
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-        <TableRow
-            android:id="@+id/place51"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
-        </TableRow>
-        <TableRow
-            android:id="@+id/place52"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
-        </TableRow>
-        <TableRow
-            android:id="@+id/place53"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
-        </TableRow>
-    </TableRow>
-    <TableRow
+    android:orientation="vertical"
+    android:background="@drawable/grass">
 
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-        <TableRow
-            android:id="@+id/place61"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
-        </TableRow>
-        <TableRow
-            android:id="@+id/place62"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
-        </TableRow>
-        <TableRow
-            android:id="@+id/place63"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
-        </TableRow>
-    </TableRow>
-    <TableRow
+        android:layout_height="90dp" >
+        <TextView
+            android:id="@+id/tv_score"
+            android:textSize="32sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-        <TableRow
-            android:id="@+id/place71"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        tools:context=".MainActivity">
+
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
             android:layout_weight="1"
-            >
-        </TableRow>
-        <TableRow
-            android:id="@+id/place72"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/place11"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/empty" />
+
+            <Button
+                android:id="@+id/place12"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/empty" />
+
+            <Button
+                android:id="@+id/place13"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/empty" />
+
+            <Button
+                android:id="@+id/place21"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/empty" />
+
+            <Button
+                android:id="@+id/place22"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/empty" />
+
+            <Button
+                android:id="@+id/place23"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/empty" />
+
+            <Button
+                android:id="@+id/place31"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/empty" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginBottom="60dp"
             android:layout_weight="1"
-            >
-        </TableRow>
-        <TableRow
-            android:id="@+id/place73"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/place32"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/empty" />
+
+            <Button
+                android:id="@+id/place33"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/empty" />
+
+            <Button
+                android:id="@+id/place41"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/empty" />
+
+            <Button
+                android:id="@+id/place42"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/empty" />
+
+            <Button
+                android:id="@+id/place43"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/empty" />
+
+            <Button
+                android:id="@+id/place51"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/empty" />
+
+            <Button
+                android:id="@+id/place52"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/empty" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginTop="60dp"
             android:layout_weight="1"
-            >
-        </TableRow>
-    </TableRow>
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-        <TableRow
-            android:id="@+id/place81"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
-        </TableRow>
-        <TableRow
-            android:id="@+id/place82"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
-        </TableRow>
-        <TableRow
-            android:id="@+id/place83"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
-        </TableRow>
-    </TableRow>
-</TableLayout>
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/place53"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/empty" />
+
+            <Button
+                android:id="@+id/place61"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/empty" />
+
+            <Button
+                android:id="@+id/place62"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/empty" />
+
+            <Button
+                android:id="@+id/place63"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/empty" />
+
+            <Button
+                android:id="@+id/place71"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/empty" />
+
+            <Button
+                android:id="@+id/place72"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/empty" />
+
+            <Button
+                android:id="@+id/place73"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/empty" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
