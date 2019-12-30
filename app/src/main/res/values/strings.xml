@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">kill the mole</string>
+    <string name="holes">Колличество ям:</string>
+    <string name="time">Время игры:</string>
+    <string name="Speed">Время на раунд:</string>
+    <string name="Difficulty">Сложность игры:</string>
+
 </resources>

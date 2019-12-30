@@ -1,103 +1,103 @@
 package ru.tsu.killthemole
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.view.View
-import android.widget.Button
-import android.widget.TableRow
+import android.widget.SeekBar
 import android.widget.Toast
-import androidx.core.content.ContextCompat
-import kotlinx.android.synthetic.main.activity_main.*
-import java.util.concurrent.ThreadLocalRandom
-import kotlin.random.Random
+import kotlinx.android.synthetic.main.activity_start.*
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
+class MainActivity : AppCompatActivity(), View.OnClickListener, SeekBar.OnSeekBarChangeListener {
 
-    private val places = mutableListOf<Button>()
-    private val holes = mutableListOf<Button>()
-    private val moles = mutableListOf<Button>()
-    private var score = 0
+    var holes = 8
+    var time = 60000L
+    var speed = 2000L
+    var difficulty = 2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         //TODO добавить иконку
-        //TODO создать окно меню
-        //TODO добавить выбор сложности (время/кол-во дыр)
-        //TODO проверку, что numOfSpawning не больше кол-ва дыр
-        //TODO добавить паузу
+        //TODO добавить автоматические уровни
+        //TODO добавить сохранение результата
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        initViews()
-        places.shuffle()
-        for(i in 0..5) {
-            places[i].background = (ContextCompat.getDrawable(this, R.drawable.weed_again))
-            holes.add(places[i])
-            places[i].setOnClickListener(this)
-        }
-        tv_score.text = 0.toString()
-        var gameTime = 30000L
-        var spawnRate = 1000L
-        var numOfSpawning = 2
-        onStartGame(gameTime, spawnRate, numOfSpawning)
-    }
+        setContentView(R.layout.activity_start)
+        btn_startGame.setOnClickListener(this)
+        initSeekBars()
 
-    private fun onStartGame(gameTime: Long, spawnRate : Long, numOfSpawning : Int){
-        val timer = object: CountDownTimer(gameTime, spawnRate){
-            override fun onTick(p0: Long) {
-                updateField(numOfSpawning)
-            }
-
-            override fun onFinish() {
-                Toast.makeText(baseContext,"You`ve got $score points",Toast.LENGTH_SHORT).show()
-            }
-        }.start()
-    }
-
-    private fun updateField(numOfSpawning: Int){
-        for(mole in moles){
-            moles.remove(mole)
-            holes.add(mole)
-            mole.background = ContextCompat.getDrawable(baseContext, R.drawable.weed_again)
-        }
-        holes.shuffle()
-        for(i in 0 until numOfSpawning)
-            holes[0].background = ContextCompat.getDrawable(baseContext, R.drawable.kos)
-        moles.add(holes[0])
-        holes.removeAt(0)
+        tv_holes.text = "${getString(R.string.holes)} ${holes}"
+        tv_time.text = "${getString(R.string.time)}  ${getPluralSeconds((time/1000))}"
+        tv_speed.text = "${getString(R.string.Speed)}  ${getPluralSeconds(speed/1000)}"
+        tv_difficulty.text = "${getString(R.string.Difficulty)}  ${difficulty} ямы в раунд"
     }
 
     override fun onClick(p0: View?) {
-        if(moles.contains(p0)){
-            score++
-            tv_score.text = score.toString()
-            moles.remove(p0)
-            holes.add(p0 as Button)
-            p0.background = ContextCompat.getDrawable(this, R.drawable.weed_again)
+        if(p0 == btn_startGame){
+            if(holes<difficulty){
+                Toast.makeText(this,"Убедитесь, что сложность не превышает колличество ям",
+                    Toast.LENGTH_SHORT).show()
+            } else {
+                startGame()
+            }
         }
     }
 
-
-    private fun initViews(){
-        places.add(place11)
-        places.add(place12)
-        places.add(place13)
-        places.add(place21)
-        places.add(place22)
-        places.add(place23)
-        places.add(place31)
-        places.add(place32)
-        places.add(place33)
-        places.add(place41)
-        places.add(place42)
-        places.add(place43)
-        places.add(place51)
-        places.add(place52)
-        places.add(place53)
-        places.add(place61)
-        places.add(place62)
-        places.add(place63)
-        places.add(place71)
-        places.add(place72)
-        places.add(place73)
+    private fun startGame(){
+        val gameIntent = Intent(this, GameActivity::class.java)
+        gameIntent.putExtra("holes", holes)
+        gameIntent.putExtra("time", time)
+        gameIntent.putExtra("speed", speed)
+        gameIntent.putExtra("difficulty", difficulty)
+        startActivity(gameIntent)
+        finish()
     }
+
+    private fun initSeekBars(){
+        sb_holes.setOnSeekBarChangeListener(this)
+        sb_time.setOnSeekBarChangeListener(this)
+        sb_speed.setOnSeekBarChangeListener(this)
+        sb_difficulty.setOnSeekBarChangeListener(this)
+    }
+
+    override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
+        //TODO вывести заданные настройки (красиво)
+        when(p0){
+            sb_holes -> {
+                holes = p1+1
+                tv_holes.text = "${getString(R.string.holes)} ${holes}"
+            }
+            sb_time ->{
+                time = (p1+1)*10000L
+                tv_time.text = "${getString(R.string.time)}  ${getPluralSeconds((p1+1)*10L)}"
+            }
+            sb_speed ->{
+                speed = (p1+1)*1000L
+                tv_speed.text = "${getString(R.string.Speed)}  ${getPluralSeconds(p1+1L)}"
+            }
+            sb_difficulty ->{
+                difficulty = p1+1
+                tv_difficulty.text = "${getString(R.string.Difficulty)}  ${difficulty} ямы в раунд"
+            }
+        }
+    }
+
+    override fun onStartTrackingTouch(p0: SeekBar?) {
+
+    }
+
+    override fun onStopTrackingTouch(p0: SeekBar?) {
+
+    }
+
+    private fun getPluralSeconds(value : Long) : String{
+        var typeOfPlural = 3
+        if((value%100L)/10L!=1L && value%10L == 1L) typeOfPlural = 1
+        else if((value%100L)/10L!=1L && value%10 >=2 && value%10 <=4) typeOfPlural = 2
+            return when(typeOfPlural){
+                1 -> "$value секунда"
+                2 -> "$value секунды"
+                3 -> "$value секунд"
+                else -> "problem"
+            }
+    }
+
 }
