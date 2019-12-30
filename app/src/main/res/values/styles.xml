@@ -8,4 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Place">
+        <item name="android:background">@color/empty</item>
+        <item name="android:layout_margin">4dp</item>
+    </style>
+
 </resources>

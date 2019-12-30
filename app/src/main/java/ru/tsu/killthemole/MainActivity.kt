@@ -20,6 +20,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private var score = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        //TODO добавить иконку
+        //TODO создать окно меню
+        //TODO добавить выбор сложности (время/кол-во дыр)
+        //TODO проверку, что numOfSpawning не больше кол-ва дыр
+        //TODO добавить паузу
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initViews()
@@ -30,23 +35,35 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             places[i].setOnClickListener(this)
         }
         tv_score.text = 0.toString()
-        onStartGame()
+        var gameTime = 30000L
+        var spawnRate = 1000L
+        var numOfSpawning = 2
+        onStartGame(gameTime, spawnRate, numOfSpawning)
     }
 
-    private fun onStartGame(){
-        val timer = object: CountDownTimer(60000, 5000){
+    private fun onStartGame(gameTime: Long, spawnRate : Long, numOfSpawning : Int){
+        val timer = object: CountDownTimer(gameTime, spawnRate){
             override fun onTick(p0: Long) {
-                holes.shuffle()
-                //TODO добавить проверку на пустоту holes
-                holes[0].background = ContextCompat.getDrawable(baseContext, R.drawable.kos)
-                moles.add(holes[0])
-                holes.removeAt(0)
+                updateField(numOfSpawning)
             }
 
             override fun onFinish() {
-                Toast.makeText(baseContext,"game finished",Toast.LENGTH_SHORT).show()
+                Toast.makeText(baseContext,"You`ve got $score points",Toast.LENGTH_SHORT).show()
             }
         }.start()
+    }
+
+    private fun updateField(numOfSpawning: Int){
+        for(mole in moles){
+            moles.remove(mole)
+            holes.add(mole)
+            mole.background = ContextCompat.getDrawable(baseContext, R.drawable.weed_again)
+        }
+        holes.shuffle()
+        for(i in 0 until numOfSpawning)
+            holes[0].background = ContextCompat.getDrawable(baseContext, R.drawable.kos)
+        moles.add(holes[0])
+        holes.removeAt(0)
     }
 
     override fun onClick(p0: View?) {
