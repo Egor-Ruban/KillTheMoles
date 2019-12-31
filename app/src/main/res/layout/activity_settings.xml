@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-
+    android:background="@color/color_primary_light"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 <!-- кол-во ям -->
@@ -37,6 +37,7 @@
         app:layout_constraintStart_toStartOf="@id/sb_holes"
         app:layout_constraintTop_toBottomOf="@id/sb_holes"/>
     <SeekBar
+
         style="@style/StartPage.SeekBar"
         android:id="@+id/sb_time"
         android:layout_width="match_parent"
@@ -81,7 +82,7 @@
         android:id="@+id/sb_difficulty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:max="20"
+        android:max="7"
         android:progress="1"
         app:layout_constraintEnd_toEndOf="@id/tv_difficulty"
         app:layout_constraintStart_toStartOf="@id/tv_difficulty"

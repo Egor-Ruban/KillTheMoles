@@ -6,98 +6,28 @@ import android.os.Bundle
 import android.view.View
 import android.widget.SeekBar
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_start.*
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_settings.*
 
-class MainActivity : AppCompatActivity(), View.OnClickListener, SeekBar.OnSeekBarChangeListener {
-
-    var holes = 8
-    var time = 60000L
-    var speed = 2000L
-    var difficulty = 2
-
+class MainActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
-        //TODO добавить иконку
-        //TODO добавить автоматические уровни
-        //TODO добавить сохранение результата
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_start)
-        btn_startGame.setOnClickListener(this)
-        initSeekBars()
+        setContentView(R.layout.activity_main)
 
-        tv_holes.text = "${getString(R.string.holes)} ${holes}"
-        tv_time.text = "${getString(R.string.time)}  ${getPluralSeconds((time/1000))}"
-        tv_speed.text = "${getString(R.string.Speed)}  ${getPluralSeconds(speed/1000)}"
-        tv_difficulty.text = "${getString(R.string.Difficulty)}  ${difficulty} ямы в раунд"
-    }
-
-    override fun onClick(p0: View?) {
-        if(p0 == btn_startGame){
-            if(holes<difficulty){
-                Toast.makeText(this,"Убедитесь, что сложность не превышает колличество ям",
-                    Toast.LENGTH_SHORT).show()
-            } else {
-                startGame()
-            }
+        btn_play.setOnClickListener{
+            //TODO сделать рандом или запуск непройденного уровня
+            val intent = Intent(this, GameActivity::class.java)
+            startActivity(intent)
+        }
+        btn_levels.setOnClickListener {
+            val intent = Intent(this, LevelsActivity::class.java)
+            startActivity(intent)
+        }
+        btn_exit.setOnClickListener {
+            finish()
         }
     }
 
-    private fun startGame(){
-        val gameIntent = Intent(this, GameActivity::class.java)
-        gameIntent.putExtra("holes", holes)
-        gameIntent.putExtra("time", time)
-        gameIntent.putExtra("speed", speed)
-        gameIntent.putExtra("difficulty", difficulty)
-        startActivity(gameIntent)
-        finish()
-    }
 
-    private fun initSeekBars(){
-        sb_holes.setOnSeekBarChangeListener(this)
-        sb_time.setOnSeekBarChangeListener(this)
-        sb_speed.setOnSeekBarChangeListener(this)
-        sb_difficulty.setOnSeekBarChangeListener(this)
-    }
-
-    override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-        //TODO вывести заданные настройки (красиво)
-        when(p0){
-            sb_holes -> {
-                holes = p1+1
-                tv_holes.text = "${getString(R.string.holes)} ${holes}"
-            }
-            sb_time ->{
-                time = (p1+1)*10000L
-                tv_time.text = "${getString(R.string.time)}  ${getPluralSeconds((p1+1)*10L)}"
-            }
-            sb_speed ->{
-                speed = (p1+1)*1000L
-                tv_speed.text = "${getString(R.string.Speed)}  ${getPluralSeconds(p1+1L)}"
-            }
-            sb_difficulty ->{
-                difficulty = p1+1
-                tv_difficulty.text = "${getString(R.string.Difficulty)}  ${difficulty} ямы в раунд"
-            }
-        }
-    }
-
-    override fun onStartTrackingTouch(p0: SeekBar?) {
-
-    }
-
-    override fun onStopTrackingTouch(p0: SeekBar?) {
-
-    }
-
-    private fun getPluralSeconds(value : Long) : String{
-        var typeOfPlural = 3
-        if((value%100L)/10L!=1L && value%10L == 1L) typeOfPlural = 1
-        else if((value%100L)/10L!=1L && value%10 >=2 && value%10 <=4) typeOfPlural = 2
-            return when(typeOfPlural){
-                1 -> "$value секунда"
-                2 -> "$value секунды"
-                3 -> "$value секунд"
-                else -> "problem"
-            }
-    }
 
 }

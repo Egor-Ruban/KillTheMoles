@@ -18,6 +18,7 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {private val plac
         super.onCreate(savedInstanceState)
 
         //TODO добавить паузу
+        //TODO добавить полицая
         setContentView(R.layout.activity_game)
         initViews()
         places.shuffle()
@@ -28,7 +29,7 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {private val plac
             places[i].setOnClickListener(this)
         }
         tv_score.text = 0.toString()
-        var gameTime = intent.getLongExtra("time",60000L)
+        var gameTime = intent.getLongExtra("time",30000L)
         var spawnRate = intent.getLongExtra("speed", 3000L)
         var numOfSpawning = intent.getIntExtra("difficulty", 2)
         onStartGame(gameTime, spawnRate, numOfSpawning)
