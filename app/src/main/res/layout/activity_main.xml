@@ -9,6 +9,18 @@
     android:orientation="vertical">
 
     <Button
+        android:id="@+id/btn_stats"
+        style="@style/MainPage.Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_stats"
+        app:layout_constraintBottom_toTopOf="@+id/btn_exit"
+        app:layout_constraintEnd_toEndOf="@+id/btn_levels"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btn_levels"
+        app:layout_constraintTop_toBottomOf="@+id/btn_levels" />
+
+    <Button
         android:id="@+id/btn_levels"
         style="@style/MainPage.Button"
         android:layout_width="0dp"

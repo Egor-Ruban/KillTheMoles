@@ -59,6 +59,22 @@
         <item name="android:background">@color/color_primary_dark</item>
         <item name="android:textColor">@color/color_gray_light</item>
         <item name="android:textSize">32sp</item>
+    </style>
 
+    <style name="StatsPage">
+
+    </style>
+    <style name="StatsPage.Text">
+        <item name="android:text">@string/level_text</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textColor">@color/color_gray_light</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+    <style name="StatsPage.Button">
+        <item name="android:padding">16dp</item>
+        <item name="android:background">@drawable/custom_button</item>
+        <item name="android:textColor">@color/color_gray_light</item>
+        <item name="android:textSize">24sp</item>
     </style>
 </resources>

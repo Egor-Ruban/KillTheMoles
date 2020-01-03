@@ -60,6 +60,11 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {private val plac
                 val resultData = Intent()
                 resultData.putExtra("isPassed",score>=scoreToBeat)
                 setResult(Activity.RESULT_OK,resultData)
+                Repository.add(Repository.ATTEMPTS,1)
+                Repository.add(Repository.COLLECTED,score.toInt())
+                if(score>=scoreToBeat) {
+                    Repository.add(Repository.SUCCESS,1)
+                }
                 finish()
             }
         }.start()

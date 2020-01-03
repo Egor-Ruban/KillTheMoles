@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity(){
         //TODO создать статистику
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        Repository.init(applicationContext)
         btn_play.setOnClickListener{
             val intent = Intent(this, GameActivity::class.java)
             val holes = Random.nextInt(1,21)
@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity(){
                 putExtra("holes",holes)
                 putExtra("difficulty", difficulty)
                 putExtra("speed", speed)
-
             }
             startActivity(intent)
         }
@@ -37,8 +36,11 @@ class MainActivity : AppCompatActivity(){
         btn_exit.setOnClickListener {
             finish()
         }
+        btn_stats.setOnClickListener {
+            val intent = Intent(this, StatsActivity::class.java)
+            startActivity(intent)
+        }
     }
-
 
 
 }

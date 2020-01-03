@@ -21,5 +21,9 @@
     <string name="btn_levels">Уровни</string>
     <string name="btn_play">играть</string>
     <string name="btn_exit">выход</string>
+    <string name="btn_stats">статистика</string>
+    <string name="btn_reset">удалить прогресс</string>
+    <string name="tv_stats">Статистика</string>
+    <string name="btn_stats_exit">выйти в меню</string>
 
 </resources>

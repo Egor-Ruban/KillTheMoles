@@ -26,6 +26,9 @@
         <activity android:name=".LevelsActivity">
 
         </activity>
+        <activity android:name=".StatsActivity">
+
+        </activity>
     </application>
 
 </manifest>

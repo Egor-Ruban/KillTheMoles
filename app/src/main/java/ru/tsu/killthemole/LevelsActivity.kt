@@ -13,20 +13,18 @@ import kotlinx.android.synthetic.main.activity_levels.*
 class LevelsActivity : AppCompatActivity(), View.OnClickListener {
 
     private val buttons = mutableListOf<Button>()
-    private lateinit var prefs: MutableList<SharedPreferences>
     private lateinit var levels: MutableList<LevelData>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_levels)
-        prefs = mutableListOf(getPreferences(Context.MODE_PRIVATE))
         initButtons()
         initLevels()
         updateUI()
     }
 
     private fun updateUI() {
-        val passed = prefs[0].getInt("passed", 0)
+        val passed = Repository.getInt(Repository.LAST_PASSED,0)
         for (i in 0 until passed) {
             with(buttons[i]) {
                 backgroundTintList = ColorStateList.valueOf(getColor(R.color.test_green))
@@ -63,9 +61,8 @@ class LevelsActivity : AppCompatActivity(), View.OnClickListener {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (data!!.getBooleanExtra("isPassed", false)) {
-            val editor = prefs[0].edit()
-            editor.putInt("passed", prefs[0].getInt("passed", 0) + 1)
-            editor.apply()
+            val pas = Repository.getInt(Repository.LAST_PASSED,0) + 1
+            Repository.putValue(Repository.LAST_PASSED to pas)
             updateUI()
         }
     }
