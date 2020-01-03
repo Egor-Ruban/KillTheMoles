@@ -1,21 +1,25 @@
 <resources>
-    <string name="app_name">kill the mole</string>
+    <string name="app_name">gandja drop</string>
     <string name="holes">Колличество ям:</string>
     <string name="time">Время игры:</string>
     <string name="Speed">Время на раунд:</string>
     <string name="Difficulty">Сложность игры:</string>
     <string name="settings">настроить свой уровень</string>
-    <string name="level_one">level 1</string>
-    <string name="level_two">level 2</string>
-    <string name="level_three">level 3</string>
-    <string name="level_four">level 4</string>
-    <string name="level_five">level 5</string>
-    <string name="level_six">level 6</string>
-    <string name="level_seven">level 7</string>
-    <string name="level_eight">level 8</string>
-    <string name="level_nine">level 9</string>
-    <string name="level_ten">level 10</string>
-    <string name="level_eleven">level 11</string>
-    <string name="level_twelve">level 12</string>
+    <string name="level_one">1</string>
+    <string name="level_two">2</string>
+    <string name="level_three">3</string>
+    <string name="level_four">4</string>
+    <string name="level_five">5</string>
+    <string name="level_six">6</string>
+    <string name="level_seven">7</string>
+    <string name="level_eight">8</string>
+    <string name="level_nine">9</string>
+    <string name="level_ten">10</string>
+    <string name="level_eleven">11</string>
+    <string name="level_twelve">12</string>
+    <string name="level_text">Выбери уровень</string>
+    <string name="btn_levels">Уровни</string>
+    <string name="btn_play">играть</string>
+    <string name="btn_exit">выход</string>
 
 </resources>

@@ -1,5 +1,7 @@
 package ru.tsu.killthemole
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
@@ -12,7 +14,8 @@ import kotlinx.android.synthetic.main.activity_game.*
 class GameActivity : AppCompatActivity(), View.OnClickListener {private val places = mutableListOf<Button>()
     private val holes = mutableListOf<Button>()
     private var moles = mutableListOf<Button>()
-    private var score = 0
+    private var score = 0L
+    private var scoreToBeat = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,10 +35,11 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {private val plac
         var gameTime = intent.getLongExtra("time",30000L)
         var spawnRate = intent.getLongExtra("speed", 3000L)
         var numOfSpawning = intent.getIntExtra("difficulty", 2)
-        onStartGame(gameTime, spawnRate, numOfSpawning)
+        scoreToBeat = ((gameTime/spawnRate)*numOfSpawning*9/10)
+        startGame(gameTime, spawnRate, numOfSpawning)
     }
 
-    private fun onStartGame(gameTime: Long, spawnRate : Long, numOfSpawning : Int){
+    private fun startGame(gameTime: Long, spawnRate : Long, numOfSpawning : Int){
         val timer = object: CountDownTimer(gameTime, spawnRate){
             override fun onTick(p0: Long) {
                 updateField(numOfSpawning)
@@ -47,8 +51,16 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {private val plac
                     mole.background = ContextCompat.getDrawable(baseContext, R.drawable.weed_again)
                 }
                 moles = mutableListOf()
-                Toast.makeText(baseContext,"You`ve got $score points", Toast.LENGTH_SHORT).show()
-
+                val message = if(score>=scoreToBeat){
+                    "уровень пройден"
+                } else {
+                    "уровень не пройден"
+                }
+                Toast.makeText(baseContext, message, Toast.LENGTH_SHORT).show()
+                val resultData = Intent()
+                resultData.putExtra("isPassed",score>=scoreToBeat)
+                setResult(Activity.RESULT_OK,resultData)
+                finish()
             }
         }.start()
     }

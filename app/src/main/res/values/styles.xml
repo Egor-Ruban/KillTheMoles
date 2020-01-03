@@ -13,22 +13,52 @@
         <item name="android:layout_margin">4dp</item>
     </style>
 
-    <style name="StartPage">
+    <style name="SettingsPage">
         <item name="android:layout_margin">16dp</item>
     </style>
 
-    <style name="StartPage.TextView">
+    <style name="SettingsPage.TextView">
         <item name="android:textColor">@color/color_gray_light</item>
         <item name="android:textSize">20sp</item>
     </style>
-    <style name="StartPage.SeekBar">
+    <style name="SettingsPage.SeekBar">
         <item name="android:progressBackgroundTint">@color/color_primary_dark</item>
         <item name="android:progressTint">@color/color_accent</item>
         <item name="android:colorControlActivated">#c51162</item>
     </style>
-    <style name="StartPage.Button">
+    <style name="SettingsPage.Button">
         <item name="android:background">@drawable/custom_button</item>
         <item name="android:textColor">@color/color_gray_light</item>
         <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="MainPage">
+    </style>
+
+    <style name="MainPage.Button">
+        <item name="android:background">@drawable/custom_button</item>
+        <item name="android:textColor">@color/color_gray_light</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="LevelsPage">
+
+    </style>
+
+    <style name="LevelsPage.Button">
+        <item name="android:padding">8dp</item>
+        <item name="android:background">@drawable/custom_button</item>
+        <item name="android:textColor">@color/color_gray_light</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="LevelsPage.Text">
+        <item name="android:text">@string/level_text</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:background">@color/color_primary_dark</item>
+        <item name="android:textColor">@color/color_gray_light</item>
+        <item name="android:textSize">32sp</item>
+
     </style>
 </resources>

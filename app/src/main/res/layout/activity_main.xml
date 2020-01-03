@@ -5,15 +5,17 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/color_primary_light"
     android:orientation="vertical">
 
     <Button
         android:id="@+id/btn_levels"
+        style="@style/MainPage.Button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:text="Уровни"
+        android:text="@string/btn_levels"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -23,10 +25,11 @@
 
     <Button
         android:id="@+id/btn_play"
+        style="@style/MainPage.Button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="играть"
+        android:text="@string/btn_play"
         app:layout_constraintBottom_toTopOf="@+id/btn_levels"
         app:layout_constraintEnd_toEndOf="@+id/btn_levels"
         app:layout_constraintStart_toStartOf="@+id/btn_levels"
@@ -34,10 +37,11 @@
 
     <Button
         android:id="@+id/btn_exit"
+        style="@style/MainPage.Button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
-        android:text="выход"
+        android:text="@string/btn_exit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/btn_levels"
         app:layout_constraintStart_toStartOf="@+id/btn_levels"

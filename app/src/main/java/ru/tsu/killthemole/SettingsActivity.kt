@@ -16,9 +16,7 @@ class SettingsActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener, V
     var difficulty = 2
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        //TODO добавить иконку
-        //TODO добавить автоматические уровни
-        //TODO добавить сохранение результата
+        //TODO добавить генерацию уровней
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
         btn_startGame.setOnClickListener(this)
@@ -47,7 +45,8 @@ class SettingsActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener, V
         gameIntent.putExtra("time", time)
         gameIntent.putExtra("speed", speed)
         gameIntent.putExtra("difficulty", difficulty)
-        startActivity(gameIntent)
+        //gameIntent.putExtra("score",(time/speed)*)
+        startActivityForResult(gameIntent,1)
     }
 
     private fun initSeekBars(){
@@ -75,7 +74,7 @@ class SettingsActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener, V
             }
             sb_difficulty ->{
                 difficulty = p1+1
-                tv_difficulty.text = "${getString(R.string.Difficulty)}  ${difficulty} ямы в раунд"
+                tv_difficulty.text = "${getString(R.string.Difficulty)}  ${getPluralHoles(difficulty)} в раунд"
             }
         }
     }
@@ -96,6 +95,18 @@ class SettingsActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener, V
             1 -> "$value секунда"
             2 -> "$value секунды"
             3 -> "$value секунд"
+            else -> "problem"
+        }
+    }
+
+    private fun getPluralHoles(value:Int):String{
+        var typeOfPlural = 3
+        if((value%100L)/10L!=1L && value%10L == 1L) typeOfPlural = 1
+        else if((value%100L)/10L!=1L && value%10 >=2 && value%10 <=4) typeOfPlural = 2
+        return when(typeOfPlural){
+            1 -> "$value яма"
+            2 -> "$value ямы"
+            3 -> "$value ям"
             else -> "problem"
         }
     }
