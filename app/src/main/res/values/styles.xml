@@ -73,6 +73,8 @@
     </style>
     <style name="StatsPage.Button">
         <item name="android:padding">16dp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
         <item name="android:background">@drawable/custom_button</item>
         <item name="android:textColor">@color/color_gray_light</item>
         <item name="android:textSize">24sp</item>
