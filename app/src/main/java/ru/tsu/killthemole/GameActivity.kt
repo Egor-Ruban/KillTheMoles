@@ -16,6 +16,7 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {private val plac
     private var moles = mutableListOf<Button>()
     private var score = 0L
     private var scoreToBeat = 0L
+    private var maxScore = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,14 +36,25 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {private val plac
         var gameTime = intent.getLongExtra("time",30000L)
         var spawnRate = intent.getLongExtra("speed", 3000L)
         var numOfSpawning = intent.getIntExtra("difficulty", 2)
-        scoreToBeat = ((gameTime/spawnRate)*numOfSpawning*9/10)
+        maxScore = (gameTime/spawnRate)*numOfSpawning
+        scoreToBeat = (maxScore*9/10)
         startGame(gameTime, spawnRate, numOfSpawning)
     }
 
     private fun startGame(gameTime: Long, spawnRate : Long, numOfSpawning : Int){
-        val timer = object: CountDownTimer(gameTime, spawnRate){
+        val timer = object: CountDownTimer(gameTime, 1000){
+            override fun onTick(p0: Long) {
+                tv_estimated_time.text = "${p0/1000} сек."
+            }
+
+            override fun onFinish() {
+
+            }
+        }.start()
+        val updater = object: CountDownTimer(gameTime, spawnRate){
             override fun onTick(p0: Long) {
                 updateField(numOfSpawning)
+
             }
 
             override fun onFinish() {
@@ -52,9 +64,13 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {private val plac
                 }
                 moles = mutableListOf()
                 val message = if(score>=scoreToBeat){
-                    "уровень пройден"
+                    """уровень пройден
+                        очков собрано $score
+                        очков пропущено ${maxScore - score}""".trimIndent()
                 } else {
-                    "уровень не пройден"
+                    """уровень не пройден 
+                    очков собрано $score
+                    очков пропущено ${maxScore - score}""".trimIndent()
                 }
                 Toast.makeText(baseContext, message, Toast.LENGTH_SHORT).show()
                 val resultData = Intent()

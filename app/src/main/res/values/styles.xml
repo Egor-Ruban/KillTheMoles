@@ -8,6 +8,21 @@
         <item name="colorAccent">@color/color_accent</item>
     </style>
 
+    <style name="GamePage">
+    </style>
+
+    <style name="GamePage.Text">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/color_primary</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name = "GamePage.Data">
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:textSize">38sp</item>
+        <item name="android:textColor">@color/color_primary_dark</item>
+    </style>
+
     <style name="Place">
         <item name="android:background">@color/empty</item>
         <item name="android:layout_margin">4dp</item>

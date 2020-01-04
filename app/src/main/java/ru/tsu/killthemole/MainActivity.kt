@@ -13,29 +13,36 @@ import kotlin.random.Random
 
 class MainActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
-        //TODO создать статистику
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Repository.init(applicationContext)
         btn_play.setOnClickListener{
             val intent = Intent(this, GameActivity::class.java)
-            val holes = Random.nextInt(1,21)
-            val difficulty = Random.nextInt(1,holes)
-            val speed = Random.nextLong(1000L,3000L)
+            val levelData = LevelData().apply {
+                holes = Random.nextInt(4,16)
+                difficulty = Random.nextInt(1,holes-2)
+                speed = Random.nextLong(1000L,3000L)
+                time = speed * Random.nextLong(3,30)
+            }
+
             with(intent){
-                putExtra("holes",holes)
-                putExtra("difficulty", difficulty)
-                putExtra("speed", speed)
+                putExtra("holes",levelData.holes)
+                putExtra("difficulty", levelData.difficulty)
+                putExtra("speed", levelData.speed)
+                putExtra("time", levelData.time)
             }
             startActivity(intent)
         }
+
         btn_levels.setOnClickListener {
             val intent = Intent(this, LevelsActivity::class.java)
             startActivity(intent)
         }
+
         btn_exit.setOnClickListener {
             finish()
         }
+
         btn_stats.setOnClickListener {
             val intent = Intent(this, StatsActivity::class.java)
             startActivity(intent)

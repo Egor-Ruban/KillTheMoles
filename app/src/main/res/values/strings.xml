@@ -25,5 +25,7 @@
     <string name="btn_reset">удалить прогресс</string>
     <string name="tv_stats">Статистика</string>
     <string name="btn_stats_exit">выйти в меню</string>
+    <string name="tv_estimated_time">Время:</string>
+    <string name="tv_current_score">Очки:</string>
 
 </resources>

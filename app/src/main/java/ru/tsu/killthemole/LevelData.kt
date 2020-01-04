@@ -1,10 +1,10 @@
 package ru.tsu.killthemole
 
 data class LevelData(
-    val difficulty : Int,
-    val time : Long,
-    val speed : Long,
-    val holes : Int
+    var difficulty : Int = 4,
+    var time : Long = 30000L,
+    var speed : Long = 2000L,
+    var holes : Int = 8
 ){
 
 }

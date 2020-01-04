@@ -45,6 +45,7 @@ class LevelsActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(p0: View?) {
         val intent = Intent(this, GameActivity::class.java)
+        var isNew = 2
         with(intent) {
             for(i in buttons.indices){
                 if(p0==buttons[i]){
@@ -52,15 +53,19 @@ class LevelsActivity : AppCompatActivity(), View.OnClickListener {
                     putExtra("holes", levels[i].holes)
                     putExtra("difficulty", levels[i].difficulty)
                     putExtra("speed", levels[i].speed)
+                    if(i==Repository.getInt(Repository.LAST_PASSED, 0)){
+                        isNew = 1
+                    }
                 }
+
             }
         }
-        startActivityForResult(intent, 1)
+        startActivityForResult(intent, isNew)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (data!!.getBooleanExtra("isPassed", false)) {
+        if (data!!.getBooleanExtra("isPassed", false) && requestCode == 1) {
             val pas = Repository.getInt(Repository.LAST_PASSED,0) + 1
             Repository.putValue(Repository.LAST_PASSED to pas)
             updateUI()
@@ -96,8 +101,8 @@ class LevelsActivity : AppCompatActivity(), View.OnClickListener {
         levels.add(LevelData(1,30000L,5000L, 2))
         levels.add(LevelData(1,30000L,5000L,4))
         levels.add(LevelData(2,30000L,5000L,5))
-        levels.add(LevelData(2,30000L,4000L, 7))
-        levels.add(LevelData(2,30000L,4000L, 8))
+        levels.add(LevelData(2,32000L,4000L, 7))
+        levels.add(LevelData(2,32000L,4000L, 8))
         levels.add(LevelData(3,30000L,3000L, 9))
         levels.add(LevelData(3,30000L,3000L, 10))
         levels.add(LevelData(4,30000L,2000L, 11))
