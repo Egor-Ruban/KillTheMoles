@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">gandja drop</string>
-    <string name="holes">Колличество ям:</string>
+    <string name="holes">Колличество кустов:</string>
     <string name="time">Время игры:</string>
     <string name="Speed">Время на раунд:</string>
-    <string name="Difficulty">Сложность игры:</string>
+    <string name="Difficulty">Скорость роста:</string>
     <string name="settings">настроить свой уровень</string>
     <string name="level_one">1</string>
     <string name="level_two">2</string>
