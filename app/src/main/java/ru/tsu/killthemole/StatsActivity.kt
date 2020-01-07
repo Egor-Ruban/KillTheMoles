@@ -21,6 +21,7 @@ class StatsActivity : AppCompatActivity(){
     }
 
     private fun updateUI(){
+        tv_stats_busted.text = "Попался полиции: ${Repository.getInt(Repository.BUSTED, 0)}"
         tv_stats_collected.text = "Косячков собрано: ${Repository.getInt(Repository.COLLECTED, 0)}"
         tv_stats_attempts.text = "Игр начато: ${Repository.getInt(Repository.ATTEMPTS,0)}"
         tv_stats_success.text = "Игр пройдено: ${Repository.getInt(Repository.SUCCESS,0)}"

@@ -10,6 +10,8 @@ object Repository{
     const val LAST_PASSED = "LAST_PASSED"
     const val ATTEMPTS = "ATTEMPTS"
     const val SUCCESS = "SUCCESS"
+    const val BUSTED = "BUSTED"
+
     var isExisted = false
     private lateinit var prefs : SharedPreferences
 

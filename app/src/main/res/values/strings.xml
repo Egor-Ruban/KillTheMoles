@@ -27,5 +27,6 @@
     <string name="btn_stats_exit">выйти в меню</string>
     <string name="tv_estimated_time">Время:</string>
     <string name="tv_current_score">Очки:</string>
+    <string name="tv_stats_busted" >Попался полиции: </string>
 
 </resources>
