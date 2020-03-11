@@ -11,6 +11,7 @@
     <style name="GamePage">
     </style>
 
+
     <style name="GamePage.Text">
         <item name="android:textSize">28sp</item>
         <item name="android:textColor">@color/color_gray_light</item>
