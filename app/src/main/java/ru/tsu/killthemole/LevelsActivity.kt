@@ -1,19 +1,18 @@
 package ru.tsu.killthemole
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.children
 import kotlinx.android.synthetic.main.activity_levels.*
 
-class LevelsActivity : AppCompatActivity(), View.OnClickListener {
+class LevelsActivity : AppCompatActivity() {
 
     private val buttons = mutableListOf<Button>()
-    private lateinit var levels: MutableList<LevelData>
+    private lateinit var levels: MutableList<LevelSettings>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,26 +42,6 @@ class LevelsActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    override fun onClick(p0: View?) {
-        val intent = Intent(this, GameActivity::class.java)
-        var isNew = 2
-        with(intent) {
-            for(i in buttons.indices){
-                if(p0==buttons[i]){
-                    putExtra("time", levels[i].time)
-                    putExtra("holes", levels[i].holes)
-                    putExtra("difficulty", levels[i].difficulty)
-                    putExtra("speed", levels[i].speed)
-                    if(i==Repository.getInt(Repository.LAST_PASSED, 0)){
-                        isNew = 1
-                    }
-                }
-
-            }
-        }
-        startActivityForResult(intent, isNew)
-    }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (data!!.getBooleanExtra("isPassed", false) && requestCode == 1) {
@@ -74,23 +53,30 @@ class LevelsActivity : AppCompatActivity(), View.OnClickListener {
 
 
     private fun initButtons() {
-        buttons.add(button1)
-        buttons.add(button2)
-        buttons.add(button3)
-        buttons.add(button4)
-        buttons.add(button5)
-        buttons.add(button6)
-        buttons.add(button7)
-        buttons.add(button8)
-        buttons.add(button9)
-        buttons.add(button10)
-        buttons.add(button11)
-        buttons.add(button12)
-        for (button in buttons) {
-            button.setOnClickListener(this)
+        for(view in linearLayout2.children){
+            if(view is Button) {
+                buttons.add(view)
+                view.setOnClickListener { val intent = Intent(this, GameActivity::class.java)
+                    var isNew = 2
+                    with(intent) {
+                        for(i in buttons.indices){
+                            if(it==buttons[i]){
+                                putExtra("time", levels[i].time)
+                                putExtra("holes", levels[i].holes)
+                                putExtra("difficulty", levels[i].difficulty)
+                                putExtra("speed", levels[i].speed)
+                                if(i==Repository.getInt(Repository.LAST_PASSED, 0)){
+                                    isNew = 1
+                                }
+                            }
+                        }
+                    }
+                    startActivityForResult(intent, isNew) }
+            }
         }
+        buttons.remove(btnSettings)
 
-        btn_settings.setOnClickListener {
+        btnSettings.setOnClickListener {
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
         }
@@ -98,17 +84,19 @@ class LevelsActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun initLevels(){
         levels = mutableListOf()
-        levels.add(LevelData(1,30000L,5000L, 2))
-        levels.add(LevelData(1,30000L,5000L,4))
-        levels.add(LevelData(2,30000L,5000L,5))
-        levels.add(LevelData(2,32000L,4000L, 7))
-        levels.add(LevelData(2,32000L,4000L, 8))
-        levels.add(LevelData(3,30000L,3000L, 9))
-        levels.add(LevelData(3,30000L,3000L, 10))
-        levels.add(LevelData(4,30000L,2000L, 11))
-        levels.add(LevelData(5,30000L,2000L, 12))
-        levels.add(LevelData(6,30000L,1000L, 12))
-        levels.add(LevelData(6,30000L,1000L, 13))
-        levels.add(LevelData(7,30000L,1000L, 14))
+        val difficulties = arrayOf(1, 1, 2, 2, 2, 3, 3, 4, 5, 6, 6, 7)
+        val times = arrayOf(30000L, 30000L, 30000L, 32000L, 32000L, 30000L,
+                30000L, 30000L, 30000L, 30000L, 30000L, 30000L)
+        val speeds = arrayOf(5000L, 5000L, 5000L, 4000L, 4000L, 3000L,
+                3000L, 2000L, 2000L, 1000L, 1000L, 1000L)
+        val holes = arrayOf( 24, 5, 7, 8, 9, 10, 11, 12, 12, 13, 14)
+        for(i in difficulties.indices){
+            levels.add(LevelSettings(
+                    difficulties[i],
+                    times[i],
+                    speeds[i],
+                    holes[i]
+            ))
+        }
     }
 }

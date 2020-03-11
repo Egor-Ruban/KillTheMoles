@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,153 +8,153 @@
 
     <Button
         style="@style/LevelsPage.Button"
-        android:id="@+id/button1"
+        android:id="@+id/btnLevelOne"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/level_one"
-        app:layout_constraintBottom_toBottomOf="@+id/button2"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintBottom_toBottomOf="@+id/btnLevelTwo"
+        app:layout_constraintEnd_toStartOf="@+id/btnLevelTwo"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button2" />
+        app:layout_constraintTop_toTopOf="@+id/btnLevelTwo" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnLevelTwo"
         style="@style/LevelsPage.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/level_two"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
-        app:layout_constraintEnd_toEndOf="@+id/button11"
-        app:layout_constraintStart_toStartOf="@+id/button11"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintBottom_toTopOf="@+id/btnLevelFive"
+        app:layout_constraintEnd_toEndOf="@+id/btnLevelEleven"
+        app:layout_constraintStart_toStartOf="@+id/btnLevelEleven"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
     <Button
         style="@style/LevelsPage.Button"
-        android:id="@+id/button3"
+        android:id="@+id/btnLevelThree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/level_three"
-        app:layout_constraintBottom_toBottomOf="@+id/button2"
+        app:layout_constraintBottom_toBottomOf="@+id/btnLevelTwo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toTopOf="@+id/button2" />
+        app:layout_constraintStart_toEndOf="@+id/btnLevelTwo"
+        app:layout_constraintTop_toTopOf="@+id/btnLevelTwo" />
 
     <Button
         style="@style/LevelsPage.Button"
-        android:id="@+id/button4"
+        android:id="@+id/btnLevelFour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/level_four"
-        app:layout_constraintBottom_toBottomOf="@+id/button5"
-        app:layout_constraintEnd_toEndOf="@+id/button1"
-        app:layout_constraintStart_toStartOf="@+id/button1"
-        app:layout_constraintTop_toTopOf="@+id/button5" />
+        app:layout_constraintBottom_toBottomOf="@+id/btnLevelFive"
+        app:layout_constraintEnd_toEndOf="@+id/btnLevelOne"
+        app:layout_constraintStart_toStartOf="@+id/btnLevelOne"
+        app:layout_constraintTop_toTopOf="@+id/btnLevelFive" />
 
     <Button
         style="@style/LevelsPage.Button"
-        android:id="@+id/button5"
+        android:id="@+id/btnLevelFive"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/level_five"
-        app:layout_constraintBottom_toTopOf="@+id/button8"
-        app:layout_constraintEnd_toEndOf="@+id/button11"
-        app:layout_constraintStart_toStartOf="@+id/button11"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintBottom_toTopOf="@+id/btnLevelEight"
+        app:layout_constraintEnd_toEndOf="@+id/btnLevelEleven"
+        app:layout_constraintStart_toStartOf="@+id/btnLevelEleven"
+        app:layout_constraintTop_toBottomOf="@+id/btnLevelTwo" />
 
     <Button
         style="@style/LevelsPage.Button"
-        android:id="@+id/button6"
+        android:id="@+id/btnLevelSix"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/level_six"
-        app:layout_constraintBottom_toBottomOf="@+id/button5"
-        app:layout_constraintEnd_toEndOf="@+id/button3"
-        app:layout_constraintStart_toStartOf="@+id/button3"
-        app:layout_constraintTop_toTopOf="@+id/button5" />
+        app:layout_constraintBottom_toBottomOf="@+id/btnLevelFive"
+        app:layout_constraintEnd_toEndOf="@+id/btnLevelThree"
+        app:layout_constraintStart_toStartOf="@+id/btnLevelThree"
+        app:layout_constraintTop_toTopOf="@+id/btnLevelFive" />
 
     <Button
         style="@style/LevelsPage.Button"
-        android:id="@+id/button7"
+        android:id="@+id/btnLevelSeven"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/level_seven"
-        app:layout_constraintBottom_toBottomOf="@+id/button8"
-        app:layout_constraintEnd_toEndOf="@+id/button4"
-        app:layout_constraintStart_toStartOf="@+id/button4"
-        app:layout_constraintTop_toTopOf="@+id/button8" />
+        app:layout_constraintBottom_toBottomOf="@+id/btnLevelEight"
+        app:layout_constraintEnd_toEndOf="@+id/btnLevelFour"
+        app:layout_constraintStart_toStartOf="@+id/btnLevelFour"
+        app:layout_constraintTop_toTopOf="@+id/btnLevelEight" />
 
     <Button
         style="@style/LevelsPage.Button"
-        android:id="@+id/button8"
+        android:id="@+id/btnLevelEight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/level_eight"
-        app:layout_constraintBottom_toTopOf="@+id/button11"
-        app:layout_constraintEnd_toEndOf="@+id/button11"
-        app:layout_constraintStart_toStartOf="@+id/button11"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
+        app:layout_constraintBottom_toTopOf="@+id/btnLevelEleven"
+        app:layout_constraintEnd_toEndOf="@+id/btnLevelEleven"
+        app:layout_constraintStart_toStartOf="@+id/btnLevelEleven"
+        app:layout_constraintTop_toBottomOf="@+id/btnLevelFive" />
 
     <Button
         style="@style/LevelsPage.Button"
-        android:id="@+id/button9"
+        android:id="@+id/btnLevelNine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/level_nine"
-        app:layout_constraintBottom_toBottomOf="@+id/button8"
-        app:layout_constraintEnd_toEndOf="@+id/button6"
-        app:layout_constraintStart_toStartOf="@+id/button6"
-        app:layout_constraintTop_toTopOf="@+id/button8" />
+        app:layout_constraintBottom_toBottomOf="@+id/btnLevelEight"
+        app:layout_constraintEnd_toEndOf="@+id/btnLevelSix"
+        app:layout_constraintStart_toStartOf="@+id/btnLevelSix"
+        app:layout_constraintTop_toTopOf="@+id/btnLevelEight" />
 
     <Button
         style="@style/LevelsPage.Button"
-        android:id="@+id/button10"
+        android:id="@+id/btnLevelTen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/level_ten"
-        app:layout_constraintBottom_toBottomOf="@+id/button11"
-        app:layout_constraintEnd_toEndOf="@+id/button7"
-        app:layout_constraintStart_toStartOf="@+id/button7"
-        app:layout_constraintTop_toTopOf="@+id/button11" />
+        app:layout_constraintBottom_toBottomOf="@+id/btnLevelEleven"
+        app:layout_constraintEnd_toEndOf="@+id/btnLevelSeven"
+        app:layout_constraintStart_toStartOf="@+id/btnLevelSeven"
+        app:layout_constraintTop_toTopOf="@+id/btnLevelEleven" />
 
     <Button
         style="@style/LevelsPage.Button"
-        android:id="@+id/button11"
+        android:id="@+id/btnLevelEleven"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/level_eleven"
-        app:layout_constraintBottom_toTopOf="@+id/btn_settings"
+        app:layout_constraintBottom_toTopOf="@+id/btnSettings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button8" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLevelEight" />
 
     <Button
         style="@style/LevelsPage.Button"
-        android:id="@+id/button12"
+        android:id="@+id/btnLevelTwelve"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/level_twelve"
-        app:layout_constraintBottom_toBottomOf="@+id/button11"
-        app:layout_constraintEnd_toEndOf="@+id/button9"
-        app:layout_constraintStart_toStartOf="@+id/button9"
-        app:layout_constraintTop_toTopOf="@+id/button11" />
+        app:layout_constraintBottom_toBottomOf="@+id/btnLevelEleven"
+        app:layout_constraintEnd_toEndOf="@+id/btnLevelNine"
+        app:layout_constraintStart_toStartOf="@+id/btnLevelNine"
+        app:layout_constraintTop_toTopOf="@+id/btnLevelEleven" />
 
     <Button
         style="@style/LevelsPage.Button"
-        android:id="@+id/btn_settings"
+        android:id="@+id/btnSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:layout_marginBottom="64dp"
         android:text="@string/settings"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/button11"
-        app:layout_constraintStart_toStartOf="@+id/button11"
-        app:layout_constraintTop_toBottomOf="@+id/button11" />
+        app:layout_constraintEnd_toEndOf="@+id/btnLevelEleven"
+        app:layout_constraintStart_toStartOf="@+id/btnLevelEleven"
+        app:layout_constraintTop_toBottomOf="@+id/btnLevelEleven" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvTitle"
         style="@style/LevelsPage.Text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

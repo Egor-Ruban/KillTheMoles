@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="@color/color_primary_light"
     android:layout_width="match_parent"
@@ -9,7 +8,7 @@
 <!-- кол-во ям -->
     <TextView
         style="@style/SettingsPage.TextView"
-        android:id="@+id/tv_holes"
+        android:id="@+id/tvHoles"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/holes"
@@ -18,85 +17,85 @@
         app:layout_constraintTop_toTopOf="parent" />
     <SeekBar
         style="@style/SettingsPage.SeekBar"
-        android:id="@+id/sb_holes"
+        android:id="@+id/sbHoles"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:max="20"
         android:progress="7"
-        app:layout_constraintEnd_toEndOf="@id/tv_holes"
-        app:layout_constraintStart_toStartOf="@id/tv_holes"
-        app:layout_constraintTop_toBottomOf="@id/tv_holes"/>
+        app:layout_constraintEnd_toEndOf="@id/tvHoles"
+        app:layout_constraintStart_toStartOf="@id/tvHoles"
+        app:layout_constraintTop_toBottomOf="@id/tvHoles"/>
     <!-- время игры -->
     <TextView
         style="@style/SettingsPage.TextView"
-        android:id="@+id/tv_time"
+        android:id="@+id/tvTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/time"
-        app:layout_constraintEnd_toEndOf="@id/sb_holes"
-        app:layout_constraintStart_toStartOf="@id/sb_holes"
-        app:layout_constraintTop_toBottomOf="@id/sb_holes"/>
+        app:layout_constraintEnd_toEndOf="@id/sbHoles"
+        app:layout_constraintStart_toStartOf="@id/sbHoles"
+        app:layout_constraintTop_toBottomOf="@id/sbHoles"/>
     <SeekBar
 
         style="@style/SettingsPage.SeekBar"
-        android:id="@+id/sb_time"
+        android:id="@+id/sbTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:max="11"
         android:progress="5"
-        app:layout_constraintEnd_toEndOf="@id/tv_time"
-        app:layout_constraintStart_toStartOf="@id/tv_time"
-        app:layout_constraintTop_toBottomOf="@id/tv_time"/>
+        app:layout_constraintEnd_toEndOf="@id/tvTime"
+        app:layout_constraintStart_toStartOf="@id/tvTime"
+        app:layout_constraintTop_toBottomOf="@id/tvTime"/>
     <!-- скорость игры -->
     <TextView
         style="@style/SettingsPage.TextView"
-        android:id="@+id/tv_speed"
+        android:id="@+id/tvSpeed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/Speed"
-        app:layout_constraintEnd_toEndOf="@id/sb_time"
-        app:layout_constraintStart_toStartOf="@id/sb_time"
-        app:layout_constraintTop_toBottomOf="@id/sb_time"/>
+        app:layout_constraintEnd_toEndOf="@id/sbTime"
+        app:layout_constraintStart_toStartOf="@id/sbTime"
+        app:layout_constraintTop_toBottomOf="@id/sbTime"/>
     <SeekBar
         style="@style/SettingsPage.SeekBar"
-        android:id="@+id/sb_speed"
+        android:id="@+id/sbSpeed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:max="4"
         android:progress="1"
-        app:layout_constraintEnd_toEndOf="@id/tv_speed"
-        app:layout_constraintStart_toStartOf="@id/tv_speed"
-        app:layout_constraintTop_toBottomOf="@id/tv_speed"/>
+        app:layout_constraintEnd_toEndOf="@id/tvSpeed"
+        app:layout_constraintStart_toStartOf="@id/tvSpeed"
+        app:layout_constraintTop_toBottomOf="@id/tvSpeed"/>
     <!-- сложность игры -->
     <TextView
         style="@style/SettingsPage.TextView"
-        android:id="@+id/tv_difficulty"
+        android:id="@+id/tvDifficulty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/Difficulty"
-        app:layout_constraintEnd_toEndOf="@id/sb_speed"
-        app:layout_constraintStart_toStartOf="@id/sb_speed"
-        app:layout_constraintTop_toBottomOf="@id/sb_speed"/>
+        app:layout_constraintEnd_toEndOf="@id/sbSpeed"
+        app:layout_constraintStart_toStartOf="@id/sbSpeed"
+        app:layout_constraintTop_toBottomOf="@id/sbSpeed"/>
     <SeekBar
         style="@style/SettingsPage.SeekBar"
-        android:id="@+id/sb_difficulty"
+        android:id="@+id/sbDifficulty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:max="7"
         android:progress="1"
-        app:layout_constraintEnd_toEndOf="@id/tv_difficulty"
-        app:layout_constraintStart_toStartOf="@id/tv_difficulty"
-        app:layout_constraintTop_toBottomOf="@id/tv_difficulty"/>
+        app:layout_constraintEnd_toEndOf="@id/tvDifficulty"
+        app:layout_constraintStart_toStartOf="@id/tvDifficulty"
+        app:layout_constraintTop_toBottomOf="@id/tvDifficulty"/>
 
     <Button
         style="@style/SettingsPage.Button"
-        android:id="@+id/btn_startGame"
+        android:id="@+id/btnStartGame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="start Game"
-        app:layout_constraintEnd_toEndOf="@id/sb_difficulty"
-        app:layout_constraintStart_toStartOf="@id/sb_difficulty"
-        app:layout_constraintTop_toBottomOf="@id/sb_difficulty"
+        android:text="@string/start_game"
+        app:layout_constraintEnd_toEndOf="@id/sbDifficulty"
+        app:layout_constraintStart_toStartOf="@id/sbDifficulty"
+        app:layout_constraintTop_toBottomOf="@id/sbDifficulty"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

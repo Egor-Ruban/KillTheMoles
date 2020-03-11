@@ -10,21 +10,26 @@ class StatsActivity : AppCompatActivity(){
         setContentView(R.layout.activity_stats)
         updateUI()
 
-        btn_reset.setOnClickListener {
+        btnReset.setOnClickListener {
             Repository.reset()
             updateUI()
         }
 
-        btn_stats_exit.setOnClickListener {
+        btnStatsExit.setOnClickListener {
             finish()
         }
     }
 
     private fun updateUI(){
-        tv_stats_busted.text = "Попался полиции: ${Repository.getInt(Repository.BUSTED, 0)}"
-        tv_stats_collected.text = "Косячков собрано: ${Repository.getInt(Repository.COLLECTED, 0)}"
-        tv_stats_attempts.text = "Игр начато: ${Repository.getInt(Repository.ATTEMPTS,0)}"
-        tv_stats_success.text = "Игр пройдено: ${Repository.getInt(Repository.SUCCESS,0)}"
-        tv_stats_last.text = "Уровней пройдено: ${Repository.getInt(Repository.LAST_PASSED,0)}"
+        tvStatsBusted.text = getString(R.string.tv_stats_busted,
+                Repository.getInt(Repository.BUSTED, 0))
+        tvStatsCollected.text = getString(R.string.tv_stats_collected,
+                Repository.getInt(Repository.COLLECTED, 0))
+        tvStatsAttempts.text = getString(R.string.tv_stats_attempts,
+                Repository.getInt(Repository.ATTEMPTS,0))
+        tvStatsSuccess.text = getString(R.string.tv_stats_success,
+                Repository.getInt(Repository.SUCCESS,0))
+        tvStatsLast.text = getString(R.string.tv_stats_last,
+                Repository.getInt(Repository.LAST_PASSED,0))
     }
 }

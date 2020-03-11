@@ -16,20 +16,20 @@ class SettingsActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener, V
     var difficulty = 2
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        //TODO добавить генерацию уровней
+        //добавить генерацию уровней (не добавил, формулы не придумал)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
-        btn_startGame.setOnClickListener(this)
+        btnStartGame.setOnClickListener(this)
         initSeekBars()
 
-        tv_holes.text = "${getString(R.string.holes)} ${holes}"
-        tv_time.text = "${getString(R.string.time)}  ${getPluralSeconds((time/1000))}"
-        tv_speed.text = "${getString(R.string.Speed)}  ${getPluralSeconds(speed/1000)}"
-        tv_difficulty.text = "${getString(R.string.Difficulty)}  ${difficulty} ямы в раунд"
+        tvHoles.text = getString(R.string.holes, holes)
+        tvTime.text = getString(R.string.time, getPluralSeconds((time/1000)))
+        tvSpeed.text = getString(R.string.Speed, getPluralSeconds(speed/1000))
+        tvDifficulty.text = getString(R.string.Difficulty, difficulty)
     }
 
     override fun onClick(p0: View?) {
-        if(p0 == btn_startGame){
+        if(p0 == btnStartGame){
             if(holes<difficulty){
                 Toast.makeText(this,"Убедитесь, что сложность не превышает колличество ям",
                     Toast.LENGTH_SHORT).show()
@@ -45,46 +45,44 @@ class SettingsActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener, V
         gameIntent.putExtra("time", time)
         gameIntent.putExtra("speed", speed)
         gameIntent.putExtra("difficulty", difficulty)
-        //gameIntent.putExtra("score",(time/speed)*)
         startActivityForResult(gameIntent,1)
     }
 
     private fun initSeekBars(){
-        sb_holes.setOnSeekBarChangeListener(this)
-        sb_time.setOnSeekBarChangeListener(this)
-        sb_speed.setOnSeekBarChangeListener(this)
-        sb_difficulty.setOnSeekBarChangeListener(this)
+        sbHoles.setOnSeekBarChangeListener(this)
+        sbTime.setOnSeekBarChangeListener(this)
+        sbSpeed.setOnSeekBarChangeListener(this)
+        sbDifficulty.setOnSeekBarChangeListener(this)
     }
 
     override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-        //TODO вывести заданные настройки (красиво)
         when(p0){
-            sb_holes -> {
-                sb_difficulty.max = p1
+            sbHoles -> {
+                sbDifficulty.max = p1
                 holes = p1+1
-                tv_holes.text = "${getString(R.string.holes)} ${holes}"
+                tvHoles.text = getString(R.string.holes, holes)
             }
-            sb_time ->{
+            sbTime ->{
                 time = (p1+1)*10000L
-                tv_time.text = "${getString(R.string.time)}  ${getPluralSeconds((p1+1)*10L)}"
+                tvTime.text = getString(R.string.time, getPluralSeconds((p1+1)*10L))
             }
-            sb_speed ->{
+            sbSpeed ->{
                 speed = (p1+1)*1000L
-                tv_speed.text = "${getString(R.string.Speed)}  ${getPluralSeconds(p1+1L)}"
+                tvSpeed.text = getString(R.string.Speed, getPluralSeconds(p1+1L))
             }
-            sb_difficulty ->{
+            sbDifficulty ->{
                 difficulty = p1+1
-                tv_difficulty.text = "${getString(R.string.Difficulty)}  ${getPluralHoles(difficulty)} в раунд"
+                tvDifficulty.text = getString(
+                        R.string.DifficultyWithString,
+                        getPluralHoles(difficulty))
             }
         }
     }
 
     override fun onStartTrackingTouch(p0: SeekBar?) {
-
     }
 
     override fun onStopTrackingTouch(p0: SeekBar?) {
-
     }
 
     private fun getPluralSeconds(value : Long) : String{

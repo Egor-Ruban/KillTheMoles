@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name">gandja drop</string>
-
-    <string name="holes">Колличество кустов:</string>
-    <string name="time">Время игры:</string>
-    <string name="Speed">Время на раунд:</string>
-    <string name="Difficulty">Скорость роста:</string>
+    <string name="start_game">start Game</string>
+    <string name="holes">Колличество кустов: %1$d</string>
+    <string name="time">Время игры: %1$s</string>
+    <string name="Speed">Время на раунд: %1$s</string>
+    <string name="Difficulty">Скорость роста: %1$d ямы в раунд</string>
+    <string name="DifficultyWithString">Скорость роста: %1$s в раунд</string>
     <string name="settings">настроить свой уровень</string>
     <string name="level_one">1</string>
     <string name="level_two">2</string>
@@ -28,6 +29,11 @@
     <string name="btn_stats_exit">выйти в меню</string>
     <string name="tv_estimated_time">Время:</string>
     <string name="tv_current_score">Очки:</string>
-    <string name="tv_stats_busted" >Попался полиции: </string>
+    <string name="tv_estimated_time_counter">%1$d сек.</string>
+    <string name="tv_stats_busted" >Попался полиции: %d</string>
+    <string name="tv_stats_collected">Косячков собрано: %d</string>
+    <string name="tv_stats_attempts">Игр начато: %d</string>
+    <string name="tv_stats_success">Игр пройдено: %d</string>
+    <string name="tv_stats_last">Уровней пройдено: %d</string>
 
 </resources>
