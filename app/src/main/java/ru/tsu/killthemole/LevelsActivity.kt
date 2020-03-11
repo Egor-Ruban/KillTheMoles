@@ -89,7 +89,7 @@ class LevelsActivity : AppCompatActivity() {
                 30000L, 30000L, 30000L, 30000L, 30000L, 30000L)
         val speeds = arrayOf(5000L, 5000L, 5000L, 4000L, 4000L, 3000L,
                 3000L, 2000L, 2000L, 1000L, 1000L, 1000L)
-        val holes = arrayOf( 24, 5, 7, 8, 9, 10, 11, 12, 12, 13, 14)
+        val holes = arrayOf( 2, 4, 5, 7, 8, 9, 10, 11, 12, 12, 13, 14)
         for(i in difficulties.indices){
             levels.add(LevelSettings(
                     difficulties[i],
